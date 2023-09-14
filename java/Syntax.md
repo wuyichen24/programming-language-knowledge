@@ -1,5 +1,19 @@
 # Syntax
 
+## Constants
+### Define a single constants
+```java
+public static final String GREETING = "Hello, World!";
+```
+### Define a `enum` 
+```java
+public enum Status {
+     ORDERED,
+     READY, 
+     DELIVERED; 
+}
+```
+
 ## Statements
 ### for loop
 - Format 1
