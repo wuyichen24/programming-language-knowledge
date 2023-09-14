@@ -2,7 +2,7 @@
 
 | | Java | Go | Python |
 |----|----|----|----|
-| Concepts | | | <li>High-level<li>General-purpose<li>Scripting |
+| Core characteristics | <li>High-level<li>Class-based<li>Object-oriented | | <li>High-level<li>General-purpose<li>Scripting |
 | Paradigm | Object-oriented | Procedural |  Multi-paradigm:<li>Object-oriented<li>Structured<li>Functional<li>Aspect-oriented |
 | Typing | Static | Static (No need to explicitly declare) | Dynamic |
 | Compilation | | | |
