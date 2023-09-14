@@ -69,3 +69,5 @@ switch (str) {
         break;
 }
 ```
+- **Note**
+   - Without `break`, program will still go through each case even if it already executed the matched case.
