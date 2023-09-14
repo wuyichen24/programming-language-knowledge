@@ -1,5 +1,10 @@
 # programming-language-knowledge
 
+## Knowledge
+- Call by value, call by reference
+- Function overload, function overriden
+- Lazy evaluation
+
 ## Languages
 ### Java
 ### Go
