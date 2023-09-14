@@ -8,6 +8,7 @@
 ## Languages
 ### Java
 - [**Data Structure**](java/Data_Structure.md)
+- [**Utility Classes**](java/Utility_Classes.md)
 
 ### Go
 ### Python
