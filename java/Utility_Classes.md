@@ -15,12 +15,12 @@
   ```
   
 ### Collections
-  | Function | Description |
-  | ---- | ---- |
-  | `sort()` | Sort the elements in the collection (Default is ascending order). |
-  | `max()` | Get the maximum element in the collection. |
-  | `min()` | Get the minimum element in the collection. |
-  | `reverse()` | Reverse the order of the elements (Use this function to get the descending order). |
+| Function | Description |
+| ---- | ---- |
+| `sort()` | Sort the elements in the collection (Default is ascending order). |
+| `max()` | Get the maximum element in the collection. |
+| `min()` | Get the minimum element in the collection. |
+| `reverse()` | Reverse the order of the elements (Use this function to get the descending order). |
 
 - Custom Sorting `Collections.sort` (`List<int[]> list`)
   ```java
@@ -34,7 +34,7 @@
   ```
 
 ### Math
-  | Function | Description |
-  |----|----|
-  | `max()` | Get the max value among 2 values. |
-  | `min()` | Get the min value among 2 values. |
+| Function | Description |
+|----|----|
+| `max()` | Get the max value among 2 values. |
+| `min()` | Get the min value among 2 values. |
