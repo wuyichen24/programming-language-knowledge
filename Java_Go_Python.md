@@ -12,3 +12,8 @@
 | Block delimiter | Curly brackets | Curly brackets | Indentation |
 | Support generic programming (dummy type) | Yes | No | No |
 | Other characteristics | | <li>Has pointer (like C programming language) | |
+
+## References
+- [Wikepedia | Java](https://en.wikipedia.org/wiki/Java_(programming_language))
+- [Wikepedia | Go](https://en.wikipedia.org/wiki/Go_(programming_language))
+- [Wikepedia | Python](https://en.wikipedia.org/wiki/Python_(programming_language))
