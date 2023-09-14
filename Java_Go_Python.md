@@ -7,5 +7,5 @@
 | Typing | Static | Static (No need to explicitly declare) | Dynamic |
 | Compilation | | | |
 | Memory management | | | <li>Reference counting<li>Cycle-detecting garbage collector |
-| Concurrency | | Built-in concurrency mechanism:<li>Goroutines and channels | |
+| Concurrency | Built-in concurrency support | Built-in concurrency support:<li>Goroutines and channels | |
 | Block delimiter | Curly brackets | Curly brackets | Indentation |
