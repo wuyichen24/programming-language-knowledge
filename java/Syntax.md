@@ -93,6 +93,7 @@ switch (str) {
   }
   ```
 - try-with-resources
+   - Any closeable class (e.g., file, stream, socket) can be automatically closed, no need to call the `close()` function manually.
   ```java
   try (CloseableClass obj = new CloseableClass()) {
       // do something
