@@ -54,3 +54,18 @@
       // do something
   }
   ```
+
+### switch statement
+```java
+switch (str) {
+    case "aaa":
+        // do something
+        break;
+    case "bbb":
+        // do something
+        break;
+    default:
+        // do something
+        break;
+}
+```
