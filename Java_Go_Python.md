@@ -10,4 +10,5 @@
 | Memory management | <li>Automatic garbage collector | <li>Automatic garbage collector | <li>Reference counting<li>Cycle-detecting garbage collector |
 | Concurrency | Built-in concurrency support:<li>`java.util.concurrent` package | Built-in concurrency support:<li>Goroutines<li>channels | Built-in concurrency support:<li>`threading` module<li>`multiprocessing` module<li>`asyncio` module<li>third-party libraries |
 | Block delimiter | Curly brackets | Curly brackets | Indentation |
+| Support generic programming (dummy type) | Yes | No | No |
 | Other characteristics | | <li>Has pointer (like C programming language) | |
