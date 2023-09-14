@@ -140,18 +140,19 @@ switch (str) {
          }
      }
      ```
-- **Static class should have a final keyword and a private constructor**
-   - `final` keyword means the class will be inherited.
-   - A private constructor is to prevent it from creating a new object**
-  ```java
-  public final class UtilityClass {
-      private UtilityClass() {
-          throw new AssertionError("This class should not be instantiated.");
-      }
+- **Best practices**
+   - *Static class should have a final keyword and a private constructor*
+      - `final` keyword means the class will be inherited.
+      - A private constructor is to prevent it from creating a new object**
+     ```java
+     public final class UtilityClass {
+         private UtilityClass() {
+             throw new AssertionError("This class should not be instantiated.");
+         }
 
-      // Static methods and members can be defined here
-  }
-  ```
+         // Static methods and members can be defined here
+     }
+     ```
    
 ### Inheritance
 ### Interface
