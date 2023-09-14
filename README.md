@@ -7,6 +7,8 @@
 
 ## Languages
 ### Java
+- [Data Structure](java/Data_Structure.md)
+
 ### Go
 ### Python
 ### Comparison
