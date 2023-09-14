@@ -15,7 +15,7 @@ public enum Status {
 ```
 
 ## Statements
-### for loop
+### `for` loop
 - Format 1
   ```java
   for (int i = 0; i < n; i++) {
@@ -29,28 +29,28 @@ public enum Status {
   }
   ```
 
-### while loop
-- while loop
+### `while` loop
+- `while` loop
   ```java
   while (i < n) {
       // do something
   }
   ```
-- do-while loop
+- `do-while` loop
   ```
   do {
 
   } while (i < n)
   ```
 
-### if statement
-- if
+### `if` statement
+- `if`
   ```java
   if (a == b) {
       // do something
   }
   ```
-- if-else
+- `if-else`
   ```java
   if (a == b) {
       // do something
@@ -58,7 +58,7 @@ public enum Status {
       // do something
   }
   ```
-- else if
+- `else if`
   ```java
   if (a == b) {
       // do something
@@ -69,7 +69,7 @@ public enum Status {
   }
   ```
 
-### switch statement
+### `switch` statement
 ```java
 switch (str) {
     case "aaa":
@@ -86,7 +86,7 @@ switch (str) {
 - **Note**
    - Without `break`, program will still go through each case even if it already executed the matched case.
 
-### try statement
+### `try` statement
 - try-catch
   ```java
   try {
@@ -95,7 +95,7 @@ switch (str) {
       // exception handling
   }
   ```
-- try-catch-finally
+- `try-catch-finally`
    - `finally` block contains code that should always be executed, whether or not an exception is thrown.
   ```java
   try {
@@ -106,7 +106,7 @@ switch (str) {
       
   }
   ```
-- try-with-resources
+- `try-with-resources`
    - Any closeable class (e.g., file, stream, socket) can be automatically closed, no need to call the `close()` function manually.
   ```java
   try (CloseableClass obj = new CloseableClass()) {
