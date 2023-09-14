@@ -71,3 +71,33 @@ switch (str) {
 ```
 - **Note**
    - Without `break`, program will still go through each case even if it already executed the matched case.
+
+### try statement
+- try-catch
+  ```java
+  try {
+      // do something
+  } catch (Exception e) {
+      // exception handling
+  }
+  ```
+- try-catch-finally
+   - `finally` block contains code that should always be executed, whether or not an exception is thrown.
+  ```java
+  try {
+      // do something
+  } catch (Exception e) {
+      // exception handling
+  } finally {
+      
+  }
+  ```
+- try-with-resources
+  ```java
+  try (CloseableClass obj = new CloseableClass()) {
+      // do something
+  } catch (Exception e) {
+      // exception handling
+  }
+  ```
+  
