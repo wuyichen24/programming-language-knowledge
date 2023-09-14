@@ -1,6 +1,10 @@
 # Utility Classes
 
-### Arrays
+- [Arrays](#arrays)
+- [Collections](#collections)
+- [Math](#math)
+
+## Arrays
 | Function | Description |
 | ---- | ---- |
 | `sort(array)` | Sort the elements in ascending order. |
@@ -14,7 +18,7 @@
   Arrays.sort(arr, (a, b)->{ return a.length() - b.length(); });
   ```
   
-### Collections
+## Collections
 | Function | Description |
 | ---- | ---- |
 | `sort()` | Sort the elements in the collection (Default is ascending order). |
@@ -33,7 +37,7 @@
   });
   ```
 
-### Math
+## Math
 | Function | Description |
 |----|----|
 | `max()` | Get the max value among 2 values. |
