@@ -115,4 +115,33 @@ switch (str) {
       // exception handling
   }
   ```
-  
+
+## Class
+### Constructor
+- **Concepts**
+   - A special type of method to initialize the newly created object.
+- **Default constructor**
+   - If a class does not explicitly define any constructors, Java provides a default constructor with no arguments.
+- **Constructor overloading**
+   - Constructors can be overloaded, which means a class can have multiple constructors with different parameter lists.
+- **Superclass constructor**
+   - A subclass can call its superclass constructor explicitly by using the `super` keyword.
+     ```java
+     public class Vehicle {
+        public Vehicle(String name) {
+
+        }
+     }
+
+     public class Car extends Vehicle {
+         public Child(String name) {
+             super(name)          // call superclass's contructor
+         }
+     }
+     ```
+   - If a subclass does not explicitly call a superclass constructor, the compiler automatically inserts a call to the default constructor of the superclass.
+
+     
+### Inheritance
+### Interface
+### Abstract
