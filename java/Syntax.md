@@ -87,7 +87,7 @@ switch (str) {
    - Without `break`, program will still go through each case even if it already executed the matched case.
 
 ### `try` statement
-- try-catch
+- `try-catch`
   ```java
   try {
       // do something
