@@ -7,7 +7,7 @@
 
 ## Languages
 ### Java
-- [Data Structure](java/Data_Structure.md)
+- [**Data Structure**](java/Data_Structure.md)
 
 ### Go
 ### Python
