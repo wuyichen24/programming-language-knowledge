@@ -8,6 +8,11 @@
 ## Languages
 ### Java
 - [**Basics**](java/Basics.md)
+   - [Class](#class)
+      - [Constructor](#constructor)
+      - [Inheritance](#inheritance)
+      - [Interface](#interface)
+      - [Abstract](#abstract)
 - [**Data Structure**](java/Data_Structure.md)
    - [Array](java/Data_Structure.md#array)
    - [List](java/Data_Structure.md#list)
