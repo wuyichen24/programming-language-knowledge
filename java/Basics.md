@@ -4,7 +4,7 @@
    - [Constructor](#constructor)
    - [Inheritance](#inheritance)
    - [Interface](#interface)
-   - [Abstract](#abstract)
+   - [Abstract class and abstract function](#abstract-class-and-abstract-function)
 
 ## Class
 ### Constructor
