@@ -18,7 +18,7 @@
 
 ### Inheritance
 - **Concept**
-   - Create a child class based on an existing parent class. The child classe inherits data and methods from the parent class.
+   - Create a child class based on an existing parent class. The child class inherits data and methods from the parent class.
 - **Benefits**
    - Promotes code reuse by allowing you to extend and specialize existing classes without duplicating code.
 
