@@ -1,5 +1,15 @@
 # Syntax
 
+- [Constants](#constants)
+   - [Define a single constant]()
+   - [Define a enum]()
+- [Statements](Statements)
+   - [for loop](#for-loop)
+   - [while loop](#while-loop)
+   - [if statement](#if-statement)
+   - [switch statement](#switch-statement)
+   - [try statement](#try-statement)
+
 ## Constants
 ### Define a single constant
 ```java
