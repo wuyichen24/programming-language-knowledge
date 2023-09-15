@@ -15,7 +15,7 @@
       - [Constructor](java/Basics.md#constructor)
       - [Inheritance](java/Basics.md#inheritance)
       - [Interface](java/Basics.md#interface)
-      - [Abstract](java/Basics.md#abstract)
+      - [Abstract class and abstract function](java/Basics.md#abstract-class-and-abstract-function)
 - [**Syntax**](java/Syntax.md)
    - [Constants](java/Syntax.md#constants)
       - [Define a single constant](#define-a-single-constant)
