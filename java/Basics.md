@@ -53,4 +53,28 @@
    - A class can inherit from only one class (In C++, a class can inherit multiple classes).
 
 ### Interface
+- **Concept**
+   - An interface is a reference type that defines a contract or a set of abstract methods that a class implementing the interface must provide.
+- **Rules**
+   - A class can implement multiple interfaces.
+   - A interface can have default methods (Java8+).
+   - A interface can have static methods (Java8+).
+- **Code example**
+  ```java
+  public interface MyInterface {
+      // Abstract method (to be implemented by classes that implement this interface)
+      void regularMethod();
+
+      // Default method (with a default implementation)
+      default void defaultMethod() {
+          System.out.println("This is a default method.");
+      }
+
+      // Static method (a method belonging to the interface itself)
+      static void staticMethod() {
+          System.out.println("This is a static method.");
+      }
+  }
+  ```
+  
 ### Abstract
