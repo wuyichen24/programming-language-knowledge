@@ -7,6 +7,7 @@
 
 ## Languages
 ### Java
+- [**Basics**](java/Basics.md)
 - [**Data Structure**](java/Data_Structure.md)
    - [Array](java/Data_Structure.md#array)
    - [List](java/Data_Structure.md#list)
