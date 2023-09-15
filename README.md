@@ -6,6 +6,9 @@
 - Lazy evaluation
 
 ## Languages
+### Comparison
+- [**Java, Go and Python**](Java_Go_Python.md)
+
 ### Java
 - [**Basics**](java/Basics.md)
    - [Class](java/Basics.md#class)
@@ -39,8 +42,6 @@
 
 ### Go
 ### Python
-### Comparison
-- [**Java, Go and Python**](Java_Go_Python.md)
 
 ## Object-oriented programming
 ### Design pattern
