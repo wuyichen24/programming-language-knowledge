@@ -1,6 +1,6 @@
 # Basics
 
-- [Class](#class)
+- [**Class**](#class)
    - [Constructor](#constructor)
    - [Inheritance](#inheritance)
    - [Interface](#interface)
