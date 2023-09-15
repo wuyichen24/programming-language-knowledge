@@ -1,4 +1,4 @@
-# Syntax
+# Basics
 
 ## Constants
 ### Define a single constants
