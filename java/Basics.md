@@ -45,5 +45,12 @@
      ```
    
 ### Inheritance
+- **Concept**
+   - The subclass inherits data and methods from the super class.
+- **Rules**
+   - The subclass can only inherits data and methods which are `public` and `protected`, `private` data and methods will not be visible from subclass.
+   - The `final` class can not be inherited.
+   - A class can inherit from only one class (In C++, a class can inherit multiple classes).
+
 ### Interface
 ### Abstract
