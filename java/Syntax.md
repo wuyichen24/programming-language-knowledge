@@ -1,7 +1,7 @@
 # Syntax
 
 ## Constants
-### Define a single constants
+### Define a single constant
 ```java
 public static final String GREETING = "Hello, World!";
 ```
