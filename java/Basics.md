@@ -54,7 +54,7 @@
 
 ### Interface
 - **Concept**
-   - An interface is a reference type that defines a contract or a set of abstract methods that a class implementing the interface must provide.
+   - An interface is a set of abstract methods (signature) that a class implementing the interface must provide.
 - **Rules**
    - A class can implement multiple interfaces.
    - A interface can have default methods (Java8+).
@@ -77,4 +77,10 @@
   }
   ```
   
-### Abstract
+### Abstract class and abstract function
+- **Concepts**
+   - Abstract class
+      - Abstract classes cannot be instantiatedand are often used as base classes for other classes.
+   - Abstract method
+      - An abstract method is a method declared in an abstract class or an interface but does not contain a method body.
+  
