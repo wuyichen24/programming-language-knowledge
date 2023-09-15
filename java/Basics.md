@@ -1,5 +1,11 @@
 # Basics
 
+- [Class](#class)
+   - [Constructor](#constructor)
+   - [Inheritance](#inheritance)
+   - [Interface](#interface)
+   - [Abstract](#abstract)
+
 ## Class
 ### Constructor
 - **Concepts**
