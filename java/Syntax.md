@@ -1,9 +1,9 @@
 # Syntax
 
-- [Constants](#constants)
+- [**Constants**](#constants)
    - [Define a single constant]()
    - [Define a enum]()
-- [Statements](Statements)
+- [**Statements**](Statements)
    - [for loop](#for-loop)
    - [while loop](#while-loop)
    - [if statement](#if-statement)
