@@ -6,3 +6,4 @@
 |---|---|---|---|---|---|---|
 | Allow Null key | Yes | No | Yes | Yes | Yes | No |
 | Entry order | No order | No order | Ascending order on keys | Insertion order | No order | No order |
+| Synchronization (thread-safe) | No | Yes | No | No | No | No |
