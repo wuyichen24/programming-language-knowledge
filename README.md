@@ -4,6 +4,7 @@
 - Call by value, call by reference
 - Function overload, function overriden
 - Lazy evaluation
+- dependency injection
 
 ## Languages
 ### Comparison
