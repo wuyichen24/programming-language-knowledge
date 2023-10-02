@@ -174,6 +174,10 @@
   ```java
   Queue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder());
   ```
+- **Initialize a priority queue with custom sorting**
+  ```
+  PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, (a, b)->(a.val - b.val));
+  ```
 - **Common functions for priority queue**
   | Functions | Description |
   | ---- | ---- |
