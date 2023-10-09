@@ -68,6 +68,11 @@
      Collections.sort(list);
      Collections.reverse(list);
      ```
+- **Copying**
+   - **Deep copy a list**
+     ```java
+     List<Integer> list2 = new ArrayList<>(list1);
+     ```
 - **Common functions for list**
   | Function | Description |
   | ---- | ---- |
