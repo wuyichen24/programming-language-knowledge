@@ -50,6 +50,7 @@
   var s1 []int
   var s2 [10]int
   ```
+  
 ### Initialization
 - `:=`
   ```go
@@ -61,6 +62,7 @@
   a := make([]int, 5)      // len=5
   b := make([]int, 0, 5)   // len=0, cap=5
   ```
+  
 ### Operations
 - Get length (`len()`)
   ```go
@@ -84,7 +86,7 @@
   numbers := []int{1, 2, 3, 4, 5}
   numbers[2] = 999
   ```
-- Traverse
+- Traversal
    - `for-range`
       - `for <index>:<element> := range <slice>`
      ```go
@@ -101,9 +103,85 @@
   var s3 []int = primes[1:]    // {3,5,7,11,13}
   var s4 []int = primes[:]     // {2,3,5,7,11,13}
   ```
-     
-## Function
+  
+### 2D slice
+- Declaration
+  ```go
+  matrix = make([][]int, numRows)
+  for i := range matrix {
+      matrix[i] = make([]int, numCols)
+  }
+  ```
+- Traversal
+  ```go
+  for row := 0; row < len(matrix); row++ {
+      for col := 0; col < len(matrix[row]); col++ {
+          element := matrix[row][col]
+          fmt.Printf("matrix[%d][%d] = %d\n", row, col, element)
+      }
+  }
+  ```
+
+## Map
+### Declaration
+```go
+var m map[string]int = make(map[string]int)
+```
+
+### Initialization
+```go
+var m = map[string]int{
+    "aaa": 111,
+    "bbb": 222,
+}
+```
+
+### Operations
+- Add
+  ```go
+  m["aaa"] = 111
+  ```
+- Access
+  ```go
+  fmt.Println(m["aaa"])
+  ```
+- Remove (`delete()`)
+  ```go
+  m["aaa"] = 111
+  delete(m, "aaa")
+  ```
+- Check key existing (`elem, ok = m[key]`)
+  ```go
+  m["aaa"] = 111
+  v1, ok1 := m["aaa"]    // v1 = "111", ok1 = true
+  v2, ok2 := m["bbb"]    // v1 = 0,     ok2 = false
+  ```
+- Traversal
+  ```go
+  for key, value := range m {
+      fmt.Println(key, ":", value)
+  }
+  ```
 
 ## Statements
+## Function
+## Struct & Interface
+### Struct
+- Declaration
+  ```go
+  type ABC struct {
+      Field1 int
+      Field2 string
+  }
+  ```
+- Construction
+  ```go
+  abc := new(ABC)
+  
+  abc := ABC{}
 
-## Struct
+  abc := ABC {
+      Field1: 3,
+      Field2: "ABC"
+  }
+  ```
