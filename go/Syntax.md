@@ -83,7 +83,8 @@
      numbers[2] = 999
      ```
    - Traverse
-      - `for-range`: `for <index>:<element> := range <slice>`
+      - `for-range`
+         - `for <index>:<element> := range <slice>`
         ```go
         s := []int{2, 3, 5, 7, 11, 13}
         for i, v := range s {
