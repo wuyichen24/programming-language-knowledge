@@ -42,9 +42,26 @@
    - [Math](java/Utility_Classes.md#math)
 
 ### Go
+- [**Syntax**](go/Syntax.md)
+   - [Variable](go/Syntax.md#variable)
+   - [Constant](go/Syntax.md#constant)
+   - [Slice](go/Syntax.md#slice)
+   - [Map](go/Syntax.md#map)
+   - [Statements](go/Syntax.md#statements)
+      - [for](go/Syntax.md#for)
+      - [if](go/Syntax.md#if)
+      - [switch](go/Syntax.md#switch)
+   - [Function](go/Syntax.md#function)
+   - [Struct & Interface](go/Syntax.md#struct--interface)
+      - [Struct](go/Syntax.md#struct)
+      - [Interface](go/Syntax.md#interface)
+   - [Other keywords](go/Syntax.md#other-keywords)
+      - [defer](go/Syntax.md#defer)
+     
 ### Python
 
 ## Object-oriented programming
 - [Object-Oriented Programming (OOP)](Object_Oriented_Programming.md)
    - [Concepts](#concepts)
+
 ### Design pattern
