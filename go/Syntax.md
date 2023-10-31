@@ -1,5 +1,32 @@
 # Syntax
 
+- [Variable](#variable)
+   - [Declaration](#declaration)
+   - [Pointer](#pointer)
+- [Constant](#constant)
+   - [Declaration](#declaration-1)
+- [Slice](#slice)
+   - [Declaration](#declaration-2)
+   - [Initialization](#initialization)
+   - [Operations](#operations)
+   - [2D slice](#2d-slice)
+- [Map](#map)
+   - [Declaration](#declaration-3)
+   - [Initialization](#initialization-1)
+   - [Operations](#operations-1)
+- [Statements](#statements)
+   - [for](#for)
+   - [if](#if)
+   - [switch](#switch)
+- [Function](#function)
+   - [Parameters](#parameters)
+   - [Return values](#return-values)
+- [Struct & Interface](#struct--interface)
+   - [Struct](#struct)
+   - [Interface](#interface)
+- [Other keywords](#other-keywords)
+   - [defer](#defer)
+  
 ## Variable
 ### Declaration
 - `var`
@@ -181,7 +208,7 @@ var m = map[string]int{
   ```
 
 ## Statements
-### `for` loop
+### `for`
 - Loop in a numeric range
   ```go
   for i := 0; i < 10; i++ {
@@ -216,7 +243,7 @@ var m = map[string]int{
   }
   ```
 
-### `if` statement
+### `if`
 - Basic example
   ```go
   if x < 0 {
@@ -230,7 +257,7 @@ var m = map[string]int{
   }
   ```
 
-### `switch` statement
+### `switch`
 - Basic example
   ```go
   switch day {
