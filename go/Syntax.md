@@ -390,3 +390,15 @@ var m = map[string]int{
       distLockManager ILockManager
   }
   ``` 
+
+## Other keywords
+### defer
+- The deferred function is executed just before the surrounding function's return.
+  ```go
+  func main () {
+      defer fmt.Println("world")
+      fmt.Println("hello")
+  }
+  ```
+- Multiple `defer` statements in a function will be pushed into a stack and executed in the order of FILO.
+- `defer` is commonly used for tasks such as closing files, releasing resources, unlocking mutexes, and handling panics gracefully.
