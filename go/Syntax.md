@@ -165,6 +165,44 @@ var m = map[string]int{
 
 ## Statements
 ## Function
+### Parameters
+- The type of the parameter is defined after the parameter
+  ```go
+  func add(x int, y int)
+  ```
+- If multiple parameters have the same type, you only need to define the type after the last parameter
+  ```go
+  func add(x, y int)
+  ```
+- Function parameter can be a function
+  ```go
+  func negative(fn func(int) int) int {
+      return fn(3)
+  }
+      
+  func main() {
+      fn := func(x int) int {
+          return x + 2
+      }
+      fmt.Println(negative(fn))
+  }
+  ```
+- Go does not support function overloading
+  
+### Return values
+- Function can have multiple return values
+  ```go
+  func swap(x, y string) (string, string)
+  ```
+- The return value can be named
+  ```go
+  func split(sum int) (x, y int) {
+      x = sum * 4 / 9
+      y = sum - x
+      return
+  }
+  ```
+
 ## Struct & Interface
 ### Struct
 - Declaration
@@ -185,3 +223,56 @@ var m = map[string]int{
       Field2: "ABC"
   }
   ```
+- Create member function
+  ```go
+  func (abc *ABC) Method1() {
+      abc.Field1 + abc.Field2
+  }
+  ```
+- Access
+  ```go
+  abc.Field1    // access data
+  abc.Method1() // access function
+  ```
+
+### Interface
+- Declaration
+  ```go
+  type IService interface {
+      createInventory() boolean
+      deleteInventory() boolean
+  }
+  ```
+- Implementation (implement interface)
+  ```go
+  type CarService struct {}
+  type TreeService struct {}
+
+  func (c *CarService) createInventory() boolean {}
+  func (c *CarService) deleteInventory() boolean {}
+
+  func (t *TreeService) createInventory() boolean {}
+  func (t *TreeService) deleteInventory() boolean {}
+  ```
+- Calling (use interface)
+  ```go
+  func MethodX(service IService) {
+      service.createInventory()
+      service.deleteInventory()
+  }
+
+  carService := CarService{}
+  MethodX(carService)
+  
+  treeService := TreeService{}
+  MethodX(treeService)
+  ```
+- Interface can also become a field in a struct
+  ```go
+  type Handler struct {
+      service         IService
+      repository      IRepository
+      eventPublisher  IEventPublisher
+      distLockManager ILockManager
+  }
+  ``` 
