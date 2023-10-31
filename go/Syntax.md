@@ -29,8 +29,25 @@
      name := "John"
      ```
 
+### Pointer
+- `*T`is a pointer to a value of type T
+   ```go
+   var p *int   // p points to type int
+   ```
+- `&` operator generates a pointer to the variable
+   ```go
+   i := 42
+   p := &i   // p points to the address of variable i
+   ```
+- `*` operator accesses the content pointed to by the pointer
+   ```go
+   i := 42
+   p := &i
+   fmt.Println(*p)   // print 42
+   ```
+   
 ## Constant
-### Declaration**
+### Declaration
 - Declare a single constant
   ```go
   const PlanID = "xyz"
@@ -164,6 +181,103 @@ var m = map[string]int{
   ```
 
 ## Statements
+### `for` loop
+- Loop in a numeric range
+  ```go
+  for i := 0; i < 10; i++ {
+      sum += i
+  }
+  ```
+- Loop on slice (`for-range`)
+  ```go
+  s := []int{2, 3, 5, 7, 11, 13}
+  for i, v := range s {
+      fmt.Printf("%d, %d\n", i, v)
+  }
+  ```
+- Loop on map (`for-range`)
+  ```go
+  var m map[string]int = make(map[string]int)
+  for key, value := range m {
+      fmt.Println(key, ":", value)
+  }
+  ```
+- Go doesn't have `while` loop, but you can do the similar
+  ```go
+  sum := 1
+  for sum < 1000 {
+      sum += sum
+  }
+  ```
+- Infinite loop
+  ```go
+  for {
+  
+  }
+  ```
+
+### `if` statement
+- Basic example
+  ```go
+  if x < 0 {
+      y := 6
+  }
+  ```
+- You can add a simple statement to the `if` condition, and the scope is within all branches
+  ```go
+  if x := 5 ; y > x {
+      return x + y
+  }
+  ```
+
+### `switch` statement
+- Basic example
+  ```go
+  switch day {
+  case "Monday":
+      fmt.Println("It's Monday. Get to work!")
+  case "Tuesday":
+      fmt.Println("It's Tuesday. Still working.")
+  case "Wednesday":
+      fmt.Println("It's Wednesday. Halfway there.")
+  case "Thursday":
+      fmt.Println("It's Thursday. Almost there.")
+  case "Friday":
+      fmt.Println("It's Friday. Time to celebrate!")
+  default:
+      fmt.Println("It's the weekend. Enjoy!")
+  }
+  ```
+- You can use expressions in a switch statement
+  ```go
+  number := 7
+  switch {
+  case number < 5:
+      fmt.Println("Number is less than 5.")
+  case number >= 5 && number < 10:
+      fmt.Println("Number is between 5 and 9.")
+  default:
+      fmt.Println("Number is 10 or greater.")
+  }
+  ```
+- The `case` block in the `switch` statement comes with a `break`. But if you want to continue consider the next case, you can use `fallthrough` keyword.
+  ```go
+  score := 85
+  switch {
+  case score >= 90:
+      fmt.Println("A")
+      fallthrough // Continue to the next case
+  case score >= 80:
+      fmt.Println("B")
+  case score >= 70:
+      fmt.Println("C")
+  case score >= 60:
+      fmt.Println("D")
+  default:
+      fmt.Println("F")
+  }
+  ```
+  
 ## Function
 ### Parameters
 - The type of the parameter is defined after the parameter
