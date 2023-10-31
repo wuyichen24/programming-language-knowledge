@@ -66,12 +66,30 @@
      len(primes)
      ```
    - Get capacity (`cap()`)
-     ```
+     ```go
      primes := []int{2, 3, 5, 7, 11, 13}
      cap(primes)
      ```
-   - Add element
-       
+   - Add element (`append`)
+     ```go
+     var s []int
+     s = append(s, 0)         // {0}
+     s = append(s, 1)         // {0,1}
+     s = append(s, 2, 3, 4)   // {0,1,2,3,4}
+     ```
+   - Modify element
+     ```
+     numbers := []int{1, 2, 3, 4, 5}
+     numbers[2] = 999
+     ```
+   - Traverse
+      - `for-range`: `for <index>:<element> := range <slice>`
+        ```go
+        s := []int{2, 3, 5, 7, 11, 13}
+        for i, v := range s {
+            fmt.Printf("%d, %d\n", i, v)
+        }
+        ```
      
 ## Function
 
