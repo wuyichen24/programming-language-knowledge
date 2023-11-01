@@ -103,7 +103,7 @@
      case <-done:
          fmt.Println("Task completed.")
      case <-time.After(2 * time.Second):
-	 fmt.Println("Timeout: Task took too long.")
+         fmt.Println("Timeout: Task took too long.")
      }
      ```
 - `time.After()` channel
