@@ -240,7 +240,7 @@ myMutex.Unlock()
 - **Examples**
    - Template
      ```go
-     func pipeline(done <-chan interface{}, valueStream <-chan interface{}, num int,) <-chan interface{} {
+     func pipeline(done <-chan interface{}, valueStream <-chan interface{}) <-chan interface{} {
          takeStream := make(chan interface{})
          go func() {
              defer close(takeStream)
