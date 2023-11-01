@@ -10,7 +10,7 @@
    - [The for-select Loop](#the-for-select-loop)
    - [Fan-in](#fan-in)
 - [**Code example**](#code-example)
-   - [#process-tasks-concurrently](#process-tasks-concurrently)
+   - [Process tasks concurrently](#process-tasks-concurrently)
 
 ## goroutine
 - **Concepts**
