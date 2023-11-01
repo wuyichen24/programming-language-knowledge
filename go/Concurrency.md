@@ -2,6 +2,8 @@
 - [goroutine](#goroutine)
 - [Go Channel](#go-channel)
 - [sync Package](#sync-package)
+- [Concurrency patterns](#concurrency-patterns)
+   - [The for-select Loop](#the-for-select-loop)
 
 ## goroutine
 - **Concepts**
