@@ -256,6 +256,39 @@ myMutex.Unlock()
      }
      ```
 
+### Filter
+- **Concepts**
+   - Based on pipeline, filter some values from a channel and only return the values satisfying the criteria to another channel.
+- **Examples**
+   - Template
+     ```go
+     func Filter(done <-chan interface{}, inputStream <-chan int, operator func(int)bool) <-chan int {
+         filteredStream := make(chan int)
+         go func() {
+             defer close(filteredStream)
+  
+             for {
+                 select {
+                 case <-done:
+                     return
+                 case i, ok := <-inputStream:
+                     if !ok {
+                         return
+                     }
+        
+                     if !operator(i) { break }     // if the current value doesn't satisfy the criteria, it will ignore that value.
+                     select {
+                     case <-done:
+                         return
+                     case filteredStream <- i:
+                     }
+                 }
+             }
+         }()
+         return filteredStream
+     }
+     ```
+
 ### Fan-in
 - **Concepts**
    - Combine multiple results into one channel.
