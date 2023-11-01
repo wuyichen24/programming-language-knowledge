@@ -32,14 +32,28 @@
      myChannel3 := make(chan string, 2)    // The type of messages is string, the channel can buffer up to 2 messages
      ```
 - **Send messages**
-   - Example
+   - Send single message
      ```go
      myChannel1 <- "hello"                 // Send string message "hello" to the channel
      ```
+   - Send multiple messages
+     ```go
+     var tasks []Task
+     for _, task := range tasks {
+         chTask <- task
+     }
+     ```
 - **Receive messages**
-   - Example
+   - Receive single message
      ```go
      message := <-myChannel1               // Receive a message from the channel
+     ```
+   - Receive multiple messages
+     ```go
+     var results []Result
+     for result := range chResult {
+         results = append(results, result)
+     }
      ```
 - **Channel direction**
    - Concepts
