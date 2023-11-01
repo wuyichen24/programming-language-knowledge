@@ -241,6 +241,8 @@ myMutex.Unlock()
      ```
 
 ### Fan-in
+- **Concepts**
+   - Redirect message from multiple channels into a single channels.
 - **Examples**
    - Basic
      ```go
