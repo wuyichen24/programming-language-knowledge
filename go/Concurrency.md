@@ -72,6 +72,7 @@
         }
         ```
 - **Close channel**
+   - You need to close channel when you finish.
    - Example
      ```
      close(myChannel1)
