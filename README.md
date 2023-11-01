@@ -57,7 +57,20 @@
       - [Interface](go/Syntax.md#interface)
    - [Other keywords](go/Syntax.md#other-keywords)
       - [defer](go/Syntax.md#defer)
-     
+- [**Concurrency**](go/Concurrency.md)
+   - [goroutine](go/Concurrency.md#goroutine)
+   - [Channel](go/Concurrency.md#channel)
+   - [select](go/Concurrency.md#select)
+   - [sync Package](go/Concurrency.md#sync-package)
+      - [Simple lock](#simple-lock)
+      - [Read-write lock](go/Concurrency.md#read-write-lock)
+      - [#wait-groups](go/Concurrency.md#wait-groups)
+   - [Concurrency patterns](go/Concurrency.md#concurrency-patterns)
+      - [The for-select Loop](go/Concurrency.md#the-for-select-loop)
+      - [Fan-in](go/Concurrency.md#fan-in)
+   - [Code example](go/Concurrency.md#code-example)
+      - [Process tasks concurrently](go/Concurrency.md#process-tasks-concurrently)
+         
 ### Python
 
 ## Object-oriented programming
