@@ -168,3 +168,46 @@ myMutex.Unlock()
          // Do non-preemptable work
      }
      ```
+
+## Code example
+### Process tasks concurrently
+```go
+type TaskInput struct {}
+type TaskOutput struct {}
+
+func processTasks(tasks []TaskInput) {
+	 g := runtime.GOMAXPROCS(0)                             // get total number of CPUs 
+	 var wg sync.WaitGroup
+	 wg.Add(g)
+
+	 chTaskInputs := make(chan TaskInput, g)                // create channel for sending task inputs to multiple goroutines
+	 chTaskOutput := make(chan TaskOutput)                  // create channel for collecting task outputs from multiple goroutines
+
+	 for i := 0; i < g; i++ {
+        go func() {                                        // create a single goroutine
+			   defer func() {
+				    wg.Done()
+			   }()
+
+			   for taskInput := range chTaskInputs {
+				    taskOutput := processTask(taskInput)       // process a single task
+				    chTaskOutput <- taskOutput
+            }
+        }()
+    }
+
+    for _, task := range tasks {                           // distribute task inputs to multiple goroutines
+        TaskInput <- task
+	 }
+
+    close(chTaskInputs)
+    wg.Wait()
+
+    var taskOutputs []TaskOutput
+    for taskOutput := range chTaskOutput {                 // collect task outputs from multiple goroutines
+        taskOutputs = append(taskOutputs, taskOutput)
+    }
+	 
+	 close(chTaskOutput)
+}
+```
