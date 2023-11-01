@@ -77,17 +77,63 @@
      ```
      close(myChannel1)
      ```
-- **time.After() function**
-   - Generates a channel that only receives a value after the specified timeout, in effect producing a blocking channel for a predefined period of time.
 
 ## Select
 ### Concepts
-- The select statement provides another way to handle multiple channels.
+- The select statement provides a control structure to handle multiple channels.
 - It's like a switch, but each case is a communication:
    - All channels are evaluated.
    - Selection blocks until one communication can proceed, which then does.
    - If multiple can proceed, select chooses pseudo-randomly.
    - A default clause, if present, executes immediately if no channel is ready.
+
+### Special channels
+- `done` channel
+   - Signal the completion or termination of a goroutine or a specific task.
+     ```go
+     done := make(chan bool)
+
+     // Start a goroutine that performs some task
+     go func() {
+         defer close(done) // Close the 'done' channel when the task is complete
+     }()
+
+     // Wait for the task to complete or for a timeout
+     select {
+     case <-done:
+         fmt.Println("Task completed.")
+     case <-time.After(2 * time.Second):
+	 fmt.Println("Timeout: Task took too long.")
+     }
+     ```
+- `time.After()` channel
+   - The `time.After()` function returns a channel that blocks for the specified duration.
+   - Local timeout
+     ```go
+     for {
+         select {
+         case s := <-c:
+             fmt.Println(s)
+         case <-time.After(1 * time.Second):
+             fmt.Println("You're too slow.")
+             return
+         }
+     }
+     ```
+   - Global timeout
+     ```go
+     timeout := time.After(5 * time.Second)
+     for {
+         select {
+         case s := <-c:
+             fmt.Println(s)
+         case <-timeout:
+             fmt.Println("You talk too much.")
+             return
+         }
+     }
+     ```
+
 ### Example
 - Basic example
   ```go
