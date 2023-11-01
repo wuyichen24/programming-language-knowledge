@@ -210,40 +210,6 @@ myMutex.Unlock()
    - `wg.Wait()`: Wait till the `WaitGroup` counter is 0.
 
 ## Concurrency patterns
-### The for-select Loop
-- **Pattern**
-  ```
-  for { // Either loop infinitely or range over something
-      select {
-          // Do some work with channels
-      }
-  }
-  ```
-- **Example**
-   - Sending iteration variables out on a channel
-     ```
-     for _, s := range []string{"a", "b", "c"} {
-         select {
-         case <-done:
-             return
-         case stringStream <- s:
-         }
-     }
-     ```
-   - Looping infinitely waiting to be stopped
-     ```go
-     func printIntegers(done <-chan struct{}, intStream <-chan int) {
-         for {
-             select {
-             case i := <-intStream:
-                 fmt.Println(i)
-             case <-done:
-                 return
-             }
-         }
-     }
-     ```
-
 ### Generator
 - **Concepts**
    - Converts a set of discrete values into a stream of values on a channel.
@@ -270,7 +236,7 @@ myMutex.Unlock()
 
 ### Pipeline
 - **Concepts**
-   - Multiple functions to process a stream of values
+   - Process a stream of values from a channel and return a stream of new values to another channel.
 - **Examples**
    - Template
      ```go
