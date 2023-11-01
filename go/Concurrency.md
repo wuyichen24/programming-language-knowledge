@@ -314,3 +314,5 @@ func processTasks(tasks []TaskInput) {
 
 ## References
 - [Go Concurrency Patterns](https://go.dev/talks/2012/concurrency.slide#1)
+- [5 Concurrency Patterns in GO to Enhance your next Project](https://blog.devgenius.io/5-useful-concurrency-patterns-in-golang-8dc90ad1ea61)
+- [Go Concurrency Patterns: Pipelines and cancellation](https://go.dev/blog/pipelines)
