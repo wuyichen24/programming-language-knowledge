@@ -76,56 +76,60 @@
    - Generates a channel that only receives a value after the specified timeout, in effect producing a blocking channel for a predefined period of time.
 
 ## sync Package
-- **Simple lock**
+### Simple lock
+```go
+var myMutex = &sync.Mutex{}
+
+myMutex.Lock()
+myMap[1] = 100   // Protect myMap against multiple goroutines changing it at the same time.  
+myMutex.Unlock()
+```
+### Read-write lock
+- Concepts
+   - If one goroutine performs read operations, other goroutines won't be blocked.
+   - If one goroutine performs write operations, other read and write operations will be blocked until the write lock is released.
+- Example
   ```go
-  var myMutex = &sync.Mutex{}
+  var myRWMutex = &sync.RWMutex{}
 
-  myMutex.Lock()
-  myMap[1] = 100   // Protect myMap against multiple goroutines changing it at the same time.  
-  myMutex.Unlock()
+  // Read operation
+  myRWMutex.RLock()
+  fmt.Println(myMap[1])
+  myRWMutex.RUnlock()
+
+  // Write operation
+  myRWMutex.Lock()
+  myMap[2] = 200
+  myRWMutex.Unlock()
   ```
-- **Read-write lock**
-   - Concepts
-      - If one goroutine performs read operations, other goroutines won't be blocked.
-      - If one goroutine performs write operations, other read and write operations will be blocked until the write lock is released.
-   - Example
-     ```go
-     var myRWMutex = &sync.RWMutex{}
-
-     // Read operation
-     myRWMutex.RLock()
-     fmt.Println(myMap[1])
-     myRWMutex.RUnlock()
-
-     // Write operation
-     myRWMutex.Lock()
-     myMap[2] = 200
-     myRWMutex.Unlock()
-     ```
-- **Wait Groups**
-   - Concepts
-      - Allows you to wait for multiple goroutines to finish before you proceed with the rest of your code.
-   - Example
-     ```go
-     var wg = &sync.WaitGroup{}     // Create a global waitgroup
+### Wait Groups
+- Concepts
+   - Allows you to wait for multiple goroutines to finish before you proceed with the rest of your code.
+- Example
+  ```go
+  var wg = &sync.WaitGroup{}     // Create a global waitgroup
   
-     func main() {
-         wg.Add(2)                  // Increment the wait group internal counter by 2
-         go routineFunction1()      // Create 1st goroutine
-         go routineFunction2()      // Create 2nd goroutine
-         wg.Wait()                  // Wait till the wait group counter is 0
-     }
+  func main() {
+      wg.Add(2)                  // Increment the wait group internal counter by 2
+      go routineFunction1()      // Create 1st goroutine
+      go routineFunction2()      // Create 2nd goroutine
+      wg.Wait()                  // Wait till the wait group counter is 0
+  }
   
-     func routineFunction1() {
-         defer wg.Done()            // When goroutine function finishes execution, decrement the internal wait group counter by one.
-         // some other operations
-     }
+  func routineFunction1() {
+      defer wg.Done()            // When goroutine function finishes execution, decrement the internal wait group counter by one.
+      // some other operations
+  }
   
-     func routineFunction2() {
-         defer wg.Done()            // When goroutine function finishes execution, decrement the internal wait group counter by one.
-         // some other operations
-     }
-     ```
+  func routineFunction2() {
+      defer wg.Done()            // When goroutine function finishes execution, decrement the internal wait group counter by one.
+      // some other operations
+  }
+  ```
+- Common function
+   - `wg.Add(int)`: Increase the `WaitGroup` counter by `int`.
+   - `wg.Done()`: Decrease the `WaitGroup` counter by 1.
+   - `wg.Wait()`: Wait till the `WaitGroup` counter is 0.
 
 ## Concurrency patterns
 ### The for-select Loop
