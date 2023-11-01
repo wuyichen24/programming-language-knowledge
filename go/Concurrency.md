@@ -99,12 +99,8 @@
 - `done` channel
    - Signal the completion or termination of a goroutine or a specific task.
      ```go
-     done := make(chan bool)
-
-     // Start a goroutine that performs some task
-     go func() {
-         defer close(done) // Close the 'done' channel when the task is complete
-     }()
+     done := make(chan interface{})
+     defer close(done)                  // Close the 'done' channel when the task is complete
 
      // Wait for the task to complete or for a timeout
      select {
