@@ -244,6 +244,52 @@ myMutex.Unlock()
      }
      ```
 
+### Generator
+- **Concepts**
+   - Converts a set of discrete values into a stream of values on a channel.
+- **Examples**
+   - Template
+     ```go
+     func generator(done <-chan interface{}, values ...interface{},) <-chan interface{} {
+         valueStream := make(chan interface{})
+         go func() {
+             defer close(valueStream)
+             for {
+                 for _, v := range values {
+                    select {
+                    case <-done:
+                        return
+                    case valueStream <- v:
+                    }
+                }
+             }
+         }()
+         return valueStream
+     }
+     ```
+
+### Pipeline
+- **Concepts**
+   - Multiple functions to process a stream of values
+- **Examples**
+   - Template
+     ```go
+     func pipeline(done <-chan interface{}, valueStream <-chan interface{}, num int,) <-chan interface{} {
+         takeStream := make(chan interface{})
+         go func() {
+             defer close(takeStream)
+             for value := range valueStream {
+                 select {
+                 case <-done:
+                     return
+                 case takeStream <- {{operation on value}}:
+                 }
+             }
+         }()
+         return takeStream
+     }
+     ```
+
 ### Fan-in
 - **Concepts**
    - Combine multiple results into one channel.
@@ -272,7 +318,7 @@ myMutex.Unlock()
          return c
      }
      ```
-   - Using select and WaitGroup and done channel
+   - Template
      ```go
      func fanIn(done <-chan interface{}, channels ...<-chan interface{}, ) <-chan interface{} {
          var wg sync.WaitGroup                         // Wait until all channels have been drained.
