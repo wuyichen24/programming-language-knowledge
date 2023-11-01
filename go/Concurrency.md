@@ -227,7 +227,7 @@ myMutex.Unlock()
      }
      ```
    - Looping infinitely waiting to be stopped
-     ```
+     ```go
      func printIntegers(done <-chan struct{}, intStream <-chan int) {
          for {
              select {
