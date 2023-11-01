@@ -198,7 +198,7 @@ func processTasks(tasks []TaskInput) {
 
     for _, task := range tasks {                           // distribute task inputs to multiple goroutines
         TaskInput <- task
-	 }
+    }
 
     close(chTaskInputs)
     wg.Wait()
