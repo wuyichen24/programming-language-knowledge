@@ -1,9 +1,16 @@
 ## Concurrency
-- [goroutine](#goroutine)
-- [Go Channel](#go-channel)
-- [sync Package](#sync-package)
-- [Concurrency patterns](#concurrency-patterns)
+- [**goroutine**](#goroutine)
+- [**Channel**](#channel)
+- [**select**](#select)
+- [**sync Package**](#sync-package)
+   - [Simple lock](#simple-lock)
+   - [Read-write lock](#read-write-lock)
+   - [#wait-groups](#wait-groups)
+- [**Concurrency patterns**](#concurrency-patterns)
    - [The for-select Loop](#the-for-select-loop)
+   - [Fan-in](#fan-in)
+- [**Code example**](#code-example)
+   - [#process-tasks-concurrently](#process-tasks-concurrently)
 
 ## goroutine
 - **Concepts**
@@ -21,7 +28,7 @@
      }
      ```
   
-## Go Channel
+## Channel
 - **Concepts**
    - Used for communication and synchronization between goroutines.
 - **Create channel**
@@ -78,7 +85,7 @@
      close(myChannel1)
      ```
 
-## Select
+## select
 ### Concepts
 - The select statement provides a control structure to handle multiple channels.
 - It's like a switch, but each case is a communication:
