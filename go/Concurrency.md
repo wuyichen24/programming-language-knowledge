@@ -15,6 +15,10 @@
    - Create a new goroutime: Append the “go” keyword before the function that you would like to run concurrently.
      ```go
      go somefunction()
+
+     go func() {
+
+     }
      ```
   
 ## Go Channel
