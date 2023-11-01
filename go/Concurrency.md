@@ -308,3 +308,6 @@ func processTasks(tasks []TaskInput) {
     close(chTaskOutput)
 }
 ```
+
+## References
+- [Go Concurrency Patterns](https://go.dev/talks/2012/concurrency.slide#1)
