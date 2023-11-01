@@ -34,9 +34,10 @@
 - **Create channel**
    - Example
      ```go
-     myChannel1 := make(chan int)          // The type of messages is int
-     myChannel2 := make(chan string)       // The type of messages is string
-     myChannel3 := make(chan string, 2)    // The type of messages is string, the channel can buffer up to 2 messages
+     myChannel1 := make(chan int)           // The type of messages is int
+     myChannel2 := make(chan string)        // The type of messages is string
+     myChannel3 := make(chan string, 2)     // The type of messages is string, the channel can buffer up to 2 messages
+     myChannels := make([]<-chan string, 3) // Create 3 channels in a slice
      ```
 - **Send messages**
    - Send single message
@@ -249,7 +250,7 @@ myMutex.Unlock()
 
 ### Fan-in
 - **Concepts**
-   - Redirect message from multiple channels into a single channels.
+   - Combine multiple results into one channel.
 - **Examples**
    - Basic
      ```go
@@ -275,6 +276,41 @@ myMutex.Unlock()
          return c
      }
      ```
+   - Using select and WaitGroup and done channel
+     ```go
+     func fanIn(done <-chan interface{}, channels ...<-chan interface{}, ) <-chan interface{} {
+         var wg sync.WaitGroup                         // Wait until all channels have been drained.
+         multiplexedStream := make(chan interface{})
+
+         multiplex := func(c <-chan interface{}) {
+             defer wg.Done()
+             for i := range c {
+                 select {
+                 case <-done:
+                     return
+                 case multiplexedStream <- i:
+                 }
+             }
+         }
+
+         // Select from all the channels
+         wg.Add(len(channels))
+         for _, c := range channels {
+             go multiplex(c)
+         }
+
+         // Wait for all the reads to complete
+         go func() {
+             wg.Wait()
+             close(multiplexedStream)
+         }()
+
+         return multiplexedStream
+     }
+     ```
+### Fan-out
+- **Concept**
+   - Start multiple goroutines to handle input from the pipeline.
 
 ## Code example
 ### Process tasks concurrently
