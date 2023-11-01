@@ -228,14 +228,15 @@ myMutex.Unlock()
      ```
    - Looping infinitely waiting to be stopped
      ```
-     for {
-         select {
-         case <-done:
-             return
-         default:
+     func printIntegers(done <-chan struct{}, intStream <-chan int) {
+         for {
+             select {
+             case i := <-intStream:
+                 fmt.Println(i)
+             case <-done:
+                 return
+             }
          }
-
-         // Do non-preemptable work
      }
      ```
 
