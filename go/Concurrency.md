@@ -176,22 +176,22 @@ type TaskInput struct {}
 type TaskOutput struct {}
 
 func processTasks(tasks []TaskInput) {
-	 g := runtime.GOMAXPROCS(0)                             // get total number of CPUs 
-	 var wg sync.WaitGroup
-	 wg.Add(g)
+    g := runtime.GOMAXPROCS(0)                             // get total number of CPUs 
+    var wg sync.WaitGroup
+    wg.Add(g)
 
-	 chTaskInputs := make(chan TaskInput, g)                // create channel for sending task inputs to multiple goroutines
-	 chTaskOutput := make(chan TaskOutput)                  // create channel for collecting task outputs from multiple goroutines
+    chTaskInputs := make(chan TaskInput, g)                // create channel for sending task inputs to multiple goroutines
+    chTaskOutput := make(chan TaskOutput)                  // create channel for collecting task outputs from multiple goroutines
 
-	 for i := 0; i < g; i++ {
+    for i := 0; i < g; i++ {
         go func() {                                        // create a single goroutine
-			   defer func() {
-				    wg.Done()
-			   }()
+            defer func() {                                 // when this goroutine is finished, decrease the counter by 1
+                wg.Done()
+            }()
 
-			   for taskInput := range chTaskInputs {
-				    taskOutput := processTask(taskInput)       // process a single task
-				    chTaskOutput <- taskOutput
+            for taskInput := range chTaskInputs {
+                taskOutput := processTask(taskInput)       // process a single task
+                chTaskOutput <- taskOutput
             }
         }()
     }
@@ -208,6 +208,6 @@ func processTasks(tasks []TaskInput) {
         taskOutputs = append(taskOutputs, taskOutput)
     }
 	 
-	 close(chTaskOutput)
+    close(chTaskOutput)
 }
 ```
