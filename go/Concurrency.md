@@ -77,22 +77,31 @@
      ```
      close(myChannel1)
      ```
-- **Select statement**
-   - Concepts
-      - Choose which of several communication operations will proceed.
-   - Example
-     ```go
-     select {
-         case i := <-ch1:
-             fmt.Println("Received value on channel ch1:", i)
-         case ch2 <- 10:
-             fmt.Println("Sent value of 10 to channel ch2")
-         default:
-             fmt.Println("No channel is ready")
-     }
-     ```
 - **time.After() function**
    - Generates a channel that only receives a value after the specified timeout, in effect producing a blocking channel for a predefined period of time.
+
+## Select
+### Concepts
+- The select statement provides another way to handle multiple channels.
+- It's like a switch, but each case is a communication:
+   - All channels are evaluated.
+   - Selection blocks until one communication can proceed, which then does.
+   - If multiple can proceed, select chooses pseudo-randomly.
+   - A default clause, if present, executes immediately if no channel is ready.
+### Example
+- Basic example
+  ```go
+  select {
+  case v1 := <-c1:                                     // receive from channel c1 
+      fmt.Printf("received %v from c1\n", v1)
+  case v2 := <-c2:                                     // receive from channel c2
+      fmt.Printf("received %v from c2\n", v1)
+  case c3 <- 23:                                       // send 23 to channel c3
+      fmt.Printf("sent %v to c3\n", 23)
+  default:
+      fmt.Printf("no one was ready to communicate\n")
+  }
+  ```
 
 ## sync Package
 ### Simple lock
@@ -152,7 +161,7 @@ myMutex.Unlock()
 
 ## Concurrency patterns
 ### The for-select Loop
-- **Code pattern**
+- **Pattern**
   ```
   for { // Either loop infinitely or range over something
       select {
@@ -160,7 +169,7 @@ myMutex.Unlock()
       }
   }
   ```
-- **Scenarios**
+- **Example**
    - Sending iteration variables out on a channel
      ```
      for _, s := range []string{"a", "b", "c"} {
@@ -181,6 +190,33 @@ myMutex.Unlock()
          }
 
          // Do non-preemptable work
+     }
+     ```
+
+### Fan-in
+- **Examples**
+   - Basic
+     ```go
+     func fanIn(input1, input2 <-chan string) <-chan string {
+         c := make(chan string)
+         go func() { for { c <- <-input1 } }()
+         go func() { for { c <- <-input2 } }()
+         return c
+     }
+     ```
+   - Using `select`
+     ```go
+     func fanIn(input1, input2 <-chan string) <-chan string {
+         c := make(chan string)
+         go func() {
+             for {
+                 select {
+                     case s := <-input1:  c <- s
+                     case s := <-input2:  c <- s
+                 }
+             }
+         }()
+         return c
      }
      ```
 
