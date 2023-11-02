@@ -353,6 +353,15 @@ myMutex.Unlock()
 ### Fan-out
 - **Concept**
    - Start multiple goroutines to handle input from the pipeline.
+- **Examples**
+   - Template
+     ```go
+     numCPUs := runtime.NumCPU()
+     finders := make([]<-chan int, numFinders)
+     for i := 0; i < numFinders; i++ {
+         finders[i] = primeFinder(done, randIntStream)
+     }
+     ```
 
 ## Code example
 ### Process tasks concurrently
@@ -363,16 +372,15 @@ type TaskOutput struct {}
 func processTasks(tasks []TaskInput) {
     g := runtime.GOMAXPROCS(0)                             // get total number of CPUs 
     var wg sync.WaitGroup
-    wg.Add(g)
+    
 
     chTaskInputs := make(chan TaskInput, g)                // create channel for sending task inputs to multiple goroutines
     chTaskOutput := make(chan TaskOutput)                  // create channel for collecting task outputs from multiple goroutines
 
     for i := 0; i < g; i++ {
+        wg.Add(1)
         go func() {                                        // create a single goroutine
-            defer func() {                                 // when this goroutine is finished, decrease the counter by 1
-                wg.Done()
-            }()
+            defer wg.Done()                                 // when this goroutine is finished, decrease the counter by 1
 
             for taskInput := range chTaskInputs {
                 taskOutput := processTask(taskInput)       // process a single task
