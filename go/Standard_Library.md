@@ -13,7 +13,7 @@
 | test | Functions for automated testing. |
 | time | Functions for measuring and displaying time. |
 
-## Slice
+## slices
 | Function | Description |
 |----|----|
 | `func Clone(s S) S` | Clones a slice `s` (shallow clone). |
@@ -21,3 +21,11 @@
 | `func Index(s S, v E) int` | Returns the index of the first occurrence of the value `v` from the slice `s` |
 | `func Sort(x S)` | Sorts the slice `x` in ascending order. |
 | `func SortFunc(x S, cmp func(a, b E) int)` | Sorts the slice `x` in ascending order as determined by the `cmp` function. |
+
+## times
+| Functions | Description |
+|----|----|
+| func Now() Time | Returns the current local time. |
+| func (t Time) After(u Time) bool | Check the time `t` is after the time `u`. |
+| func (t Time) Before(u Time) bool | Check the time `t` is before the time `u`. |
+| func Since(t Time) Duration | Returns the time elapsed since the time `t` |
