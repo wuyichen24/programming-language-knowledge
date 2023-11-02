@@ -10,7 +10,8 @@
 | `encoding` | Functions for converting data to and from byte-level and textual representations. |
 | `maps` | Functions maps. |
 | `slices` | Functions for slices. |
-| `strconv` | Conversions to and from string representations of basic data types
+| `strconv` | Conversions to and from string representations of basic data types |
+| `strings` | Functions for string. |
 | `test` | Functions for automated testing. |
 | `time` | Functions for measuring and displaying time. |
 
