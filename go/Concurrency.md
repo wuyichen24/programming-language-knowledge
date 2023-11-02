@@ -31,6 +31,7 @@
 ## Channel
 - **Concepts**
    - Used for communication and synchronization between goroutines.
+   - A channel is a first-class value that can be allocated and passed around like any other. 
 - **Create channel**
    - Example
      ```go
