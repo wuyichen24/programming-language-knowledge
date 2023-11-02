@@ -363,7 +363,7 @@ myMutex.Unlock()
      }
      ```
 
-### or-done
+### or-done channel
 - **Examples**
    - Template
      ```go
@@ -387,6 +387,35 @@ myMutex.Unlock()
              }
          }()
          return valStream
+     }
+     ```
+### tee channel
+- **Concepts**
+   - Get values from one channel and it will return two separate channels that will get the same value
+- **Examples**
+   - Template
+     ```go
+     func tee (done <-chan interface{}, in <-chan interface{},) (_, _ <-chan interface{}) { <-chan interface{}) {
+         out1 := make(chan interface{})
+         out2 := make(chan interface{})
+         go func() {
+             defer close(out1)
+             defer close(out2)
+             for val := range orDone(done, in) {
+                 var out1, out2 = out1, out2
+                 for i := 0; i < 2; i++ {
+                     select {
+                     case <-done:
+                     case out1<-val:   // send value to first output channel
+                         out1 = nil    // Once we’ve written to a channel,
+                                       // we set its shadowed copy to nil so that further writes will block and the other channel may continue.
+                     case out2<-val:   // send value to second output channel
+                         out2 = nil
+                     }
+                 }
+             }
+         }()
+         return out1, out2
      }
      ```
 
