@@ -357,9 +357,36 @@ myMutex.Unlock()
    - Template
      ```go
      numCPUs := runtime.NumCPU()
-     finders := make([]<-chan int, numFinders)
-     for i := 0; i < numFinders; i++ {
-         finders[i] = primeFinder(done, randIntStream)
+     outputChannels := make([]<-chan int, numCPUs)
+     for i := 0; i < numCPUs; i++ {
+         outputChannels[i] = doSomething(done, inputChannel)
+     }
+     ```
+
+### or-done
+- **Examples**
+   - Template
+     ```go
+     func(done, c <-chan interface{}) <-chan interface{} {
+         valStream := make(chan interface{})
+         go func() {
+             defer close(valStream)
+             for {
+                 select {
+                 case <-done:
+                     return
+                 case v, ok := <-c:
+                     if ok == false {
+                         return
+                     }
+                     select {
+                     case valStream <- v:
+                     case <-done:
+                     }
+                 }
+             }
+         }()
+         return valStream
      }
      ```
 
