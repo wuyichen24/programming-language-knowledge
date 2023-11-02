@@ -16,4 +16,8 @@
 ## Slice
 | Function | Description |
 |----|----|
-| `func Contains(s S, v E) bool` | Check slice has the element or not. |
+| `func Clone(s S) S` | Clones a slice `s` (shallow clone). |
+| `func Contains(s S, v E) bool` | Checks the slice `s` has the value `v` or not. |
+| `func Index(s S, v E) int` | Returns the index of the first occurrence of the value `v` from the slice `s` |
+| `func Sort(x S)` | Sorts the slice `x` in ascending order. |
+| `func SortFunc(x S, cmp func(a, b E) int)` | Sorts the slice `x` in ascending order as determined by the `cmp` function. |
