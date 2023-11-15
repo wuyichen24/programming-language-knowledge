@@ -62,7 +62,7 @@
    - [Channel](go/Concurrency.md#channel)
    - [select](go/Concurrency.md#select)
    - [sync Package](go/Concurrency.md#sync-package)
-      - [Simple lock](#simple-lock)
+      - [Simple lock](go/Concurrency.md#simple-lock)
       - [Read-write lock](go/Concurrency.md#read-write-lock)
       - [#wait-groups](go/Concurrency.md#wait-groups)
    - [Concurrency patterns](go/Concurrency.md#concurrency-patterns)
