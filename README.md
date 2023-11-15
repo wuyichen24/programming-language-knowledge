@@ -71,6 +71,7 @@
    - [Code example](go/Concurrency.md#code-example)
       - [Process tasks concurrently](go/Concurrency.md#process-tasks-concurrently)
 - [**Naming Convention**](go/Naming_Convention.md)
+- [**Commands**](go/Commands.md)
 
 ### Python
 
