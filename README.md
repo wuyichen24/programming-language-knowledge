@@ -72,7 +72,8 @@
       - [Process tasks concurrently](go/Concurrency.md#process-tasks-concurrently)
 - [**Naming Convention**](go/Naming_Convention.md)
 - [**Commands**](go/Commands.md)
-
+- [Golang Internals](https://www.altoros.com/blog/golang-internals-part-1-main-concepts-and-project-structure/)
+  
 ### Python
 
 ## Object-oriented programming
