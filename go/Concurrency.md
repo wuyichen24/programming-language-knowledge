@@ -1,4 +1,4 @@
-## Concurrency
+# Concurrency
 - [**goroutine**](#goroutine)
 - [**Channel**](#channel)
 - [**select**](#select)
