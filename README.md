@@ -40,6 +40,7 @@
    - [Arrays](java/Utility_Classes.md#arrays)
    - [Collections](java/Utility_Classes.md#collections)
    - [Math](java/Utility_Classes.md#math)
+- [**Installation and Upgrade**](java/Installation_Upgrade.md)
 
 ### Go
 - [**Syntax**](go/Syntax.md)
