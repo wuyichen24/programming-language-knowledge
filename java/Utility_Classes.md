@@ -17,6 +17,11 @@
   Arrays.sort(arr, (a, b)->a.length() - b.length());
   Arrays.sort(arr, (a, b)->{ return a.length() - b.length(); });
   ```
+- Custom sorting `Arrays.sort` (`int[][] arr`)
+  ```java
+  Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+  Arrays.sort(arr, (a, b) -> Integer.compare(a[0], b[0]));
+  ```
   
 ## Collections
 | Function | Description |
